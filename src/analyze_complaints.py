@@ -1,7 +1,10 @@
 import os
 import csv
+import sys
 from decimal import Decimal, ROUND_HALF_UP
 
+args = sys.argv
+# args[0], args[1]
 
 os.chdir("..")  # Go up one directory from working directory
 directory = os.getcwd()  # Gets the current working directory
