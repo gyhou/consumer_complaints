@@ -62,6 +62,6 @@ def output_csv(dict_data, save_loc):
                              'highest_percent': highest_percent})
 
 
-data_dict = process_csv('./input/consumer_complaints.csv')
+data_dict = process_csv('/input/consumer_complaints.csv')
 # loc_to_save = f"{directory}/output/report.csv"
-output_csv(data_dict, './output/report.csv')
+output_csv(data_dict, '/output/report.csv')
