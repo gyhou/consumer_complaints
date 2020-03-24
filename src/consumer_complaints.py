@@ -6,12 +6,12 @@ from decimal import Decimal, ROUND_HALF_UP
 # args = sys.argv
 # args[0], args[1]
 
-# os.chdir("..")  # Go up one directory from working directory
-# directory = os.getcwd()  # Gets the current working directory
+os.chdir("..")  # Go up one directory from working directory
+directory = os.getcwd()  # Gets the current working directory
 # input_folder = f"{directory}/input/"
 # file_name = "complaints.csv"
 # file_to_open = input_folder + file_name
-# file_to_open = f"{directory}/input/complaints.csv"
+file_to_open = f"{directory}/input/complaints.csv"
 
 
 def process_csv(file_loc):
@@ -62,6 +62,6 @@ def output_csv(dict_data, save_loc):
                              'highest_percent': highest_percent})
 
 
-data_dict = process_csv('/input/consumer_complaints.csv')
-# loc_to_save = f"{directory}/output/report.csv"
-output_csv(data_dict, '/output/report.csv')
+data_dict = process_csv(file_to_open)
+loc_to_save = f"{directory}/output/report.csv"
+output_csv(data_dict, loc_to_save)
