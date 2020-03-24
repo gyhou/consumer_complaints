@@ -4,9 +4,6 @@ import csv
 import sys
 from decimal import Decimal, ROUND_HALF_UP
 
-# args = sys.argv
-# args[0], args[1]
-
 # os.chdir("..")  # Go up one directory from working directory
 # directory = os.getcwd()  # Gets the current working directory
 # # input_folder = f"{directory}/input/"
@@ -87,10 +84,23 @@ def output_csv(dict_data, save_loc):
 
 
 if __name__ == "__main__":
-    os.chdir("..")  # Go up one directory from working directory
-    directory = os.getcwd()  # Gets the current working directory
-    file_to_open = f"{directory}/input/complaints.csv"
 
+    # os.chdir("..")  # Go up one directory from working directory
+    directory = os.getcwd().replace("\\", "/")  # Gets the current working directory
+    # print(directory)
+
+    # file_to_open = f"{directory}/input/complaints.csv"
+    # print(file_to_open)
+    # file_to_open = 'C:/Users/George/Data_Science/insight/consumer_complaints/input/complaints.csv'
+
+    # loc_to_save = f"{directory}/output/report.csv"
+    # print(loc_to_save)
+    # loc_to_save = 'C:/Users/George/Data_Science/insight/consumer_complaints/output/report.csv'
+
+    args = sys.argv
+    file_to_open = directory + args[1][1:]
+    loc_to_save = directory + args[2][1:]
+    # print(file_to_open, loc_to_save)
+    # print(args[1], args[2])
     data_dict = process_csv(file_to_open)
-    loc_to_save = f"{directory}/output/report.csv"
     output_csv(data_dict, loc_to_save)
