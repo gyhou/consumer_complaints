@@ -6,33 +6,62 @@ from decimal import Decimal, ROUND_HALF_UP
 
 def process_csv(file_loc):
     """
+    :param file_loc:
+        The file location to extract the csv from.
+
     Given the data for consumer complaints, identifying the number of 
     complaints filed and how they're spread across different companies.
     For each financial product and year,  the total number of complaints, 
     number of companies receiving a complaint, and the highest 
     percentage of complaints directed at a single company.
 
-    :param file_loc:
-        The file location to extract the csv from.
+    Returns a dictionary:
+        {(product_1, year_1): {company_1: number of complaints, company_2...},
+         (product_1, year_2): {company_1...},
+         ...
+         (product_2, year_1)...}
     """
     processed_data = dict()
     with open(file_loc) as csv_file:
         data = csv.DictReader(csv_file)
+
+        # Check for missing columns
+        missing_col = []
+        if 'Product' not in data.fieldnames:
+            missing_col.append('Product')
+        if 'Date received' not in data.fieldnames:
+            missing_col.append('Date received')
+        if 'Company' not in data.fieldnames:
+            missing_col.append('Company')
+        if missing_col:
+            raise KeyError(f"The data is missing {missing_col} column(s).")
+
         # Data sorted by product (alphabetically) and year (ascending)
         data = sorted(data, key=lambda row: (
             row['Product'], row['Date received']), reverse=False)
 
         for row in data:
             product = row['Product'].lower()
-            date = row['Date received'][:4]
+            year = row['Date received'][:4]
             company = row['Company'].lower()
-            if (product, date) in processed_data:
-                if company in processed_data[product, date]:
-                    processed_data[product, date][company] += 1
+
+            # Check if product, year, company are valid
+            if product in ['', 'n/a', 'none', 'nan'] or product.isspace():
+                raise TypeError(f'"{product}" is not a valid product.')
+            if company in ['', 'n/a', 'none', 'nan'] or company.isspace():
+                raise TypeError(f'"{company}" is not a valid company.')
+            try:
+                int(year)
+            except ValueError:
+                raise ValueError(f'"{year}" is not a valid year.')
+
+            if (product, year) in processed_data:
+                if company in processed_data[product, year]:
+                    processed_data[product, year][company] += 1
                 else:
-                    processed_data[product, date][company] = 1
+                    processed_data[product, year][company] = 1
             else:
-                processed_data[product, date] = {company: 1}
+                processed_data[product, year] = {company: 1}
     return processed_data
 
 
@@ -43,6 +72,7 @@ def output_csv(dict_data, save_loc):
     :param save_loc:
         The location to save the csv file to.
 
+    Creates a csv file in the output folder.
     Each line in the output file list the following fields in the following order:
     - product (name should be written in all lowercase)
     - year
@@ -64,6 +94,7 @@ def output_csv(dict_data, save_loc):
             year = product_year[1]
             num_complaint = sum(company_complaint.values())
             num_company = len(company_complaint)
+            # Python round() does not round .5 up to 1
             highest_percent = (Decimal(max(company_complaint.values()) /
                                        sum(company_complaint.values()) * 100).
                                quantize(0, ROUND_HALF_UP))
