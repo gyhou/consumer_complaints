@@ -1,15 +1,7 @@
-#!/usr/bin/env python
 import os
 import csv
 import sys
 from decimal import Decimal, ROUND_HALF_UP
-
-# os.chdir("..")  # Go up one directory from working directory
-# directory = os.getcwd()  # Gets the current working directory
-# # input_folder = f"{directory}/input/"
-# # file_name = "complaints.csv"
-# # file_to_open = input_folder + file_name
-# file_to_open = f"{directory}/input/complaints.csv"
 
 
 def process_csv(file_loc):
@@ -84,23 +76,15 @@ def output_csv(dict_data, save_loc):
 
 
 if __name__ == "__main__":
-
-    # os.chdir("..")  # Go up one directory from working directory
-    directory = os.getcwd().replace("\\", "/")  # Gets the current working directory
-    # print(directory)
-
-    # file_to_open = f"{directory}/input/complaints.csv"
-    # print(file_to_open)
-    # file_to_open = 'C:/Users/George/Data_Science/insight/consumer_complaints/input/complaints.csv'
-
-    # loc_to_save = f"{directory}/output/report.csv"
-    # print(loc_to_save)
-    # loc_to_save = 'C:/Users/George/Data_Science/insight/consumer_complaints/output/report.csv'
-
+    # Get the current working directory
+    directory = os.getcwd().replace("\\", "/")
+    # Get the arguments on the command-line
     args = sys.argv
+
+    # File location to read the csv file
     file_to_open = directory + args[1][1:]
+    # File location to save the csv file
     loc_to_save = directory + args[2][1:]
-    # print(file_to_open, loc_to_save)
-    # print(args[1], args[2])
+
     data_dict = process_csv(file_to_open)
     output_csv(data_dict, loc_to_save)
