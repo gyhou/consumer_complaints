@@ -34,7 +34,7 @@ def process_csv(file_loc):
         if 'Company' not in data.fieldnames:
             missing_col.append('Company')
         if missing_col:
-            raise KeyError(f"The data is missing {missing_col} column(s).")
+            raise KeyError(f"The csv is missing {missing_col} column(s).")
 
         # Data sorted by product (alphabetically) and year (ascending)
         data = sorted(data, key=lambda row: (
@@ -46,9 +46,9 @@ def process_csv(file_loc):
             company = row['Company'].lower()
 
             # Check if product, year, company are valid
-            if product in ['', 'n/a', 'none', 'nan'] or product.isspace():
+            if product in ['', 'n/a', 'none', 'nan', None] or product.isspace():
                 raise TypeError(f'"{product}" is not a valid product.')
-            if company in ['', 'n/a', 'none', 'nan'] or company.isspace():
+            if company in ['', 'n/a', 'none', 'nan', None] or company.isspace():
                 raise TypeError(f'"{company}" is not a valid company.')
             try:
                 int(year)

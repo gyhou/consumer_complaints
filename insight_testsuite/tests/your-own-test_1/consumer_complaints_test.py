@@ -16,10 +16,14 @@ class TestConsumerComplaints(unittest.TestCase):
 
         output_csv(process_csv(input_file), output_loc)
 
-        with open(expected_output, 'r') as f:
-            expected_report = [row for row in f]
-        with open(output_loc, 'r') as f:
-            actual_report = [row for row in f]
+        with open(expected_output, newline='') as csv_file:
+            csv_report = csv.reader(csv_file, delimiter=',')
+            expected_report = [row for row in csv_report]
+            print(expected_report)
+        with open(output_loc, 'r') as csv_file:
+            csv_report = csv.reader(csv_file, delimiter=',')
+            actual_report = [row for row in csv_report]
+            print(actual_report)
 
         self.assertEqual(actual_report, expected_report)
 
