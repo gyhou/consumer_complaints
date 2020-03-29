@@ -16,7 +16,7 @@ class TestConsumerComplaints(unittest.TestCase):
 
         output_csv(process_csv(input_file), output_loc)
 
-        with open(expected_output, newline='') as csv_file:
+        with open(expected_output, 'r') as csv_file:
             csv_report = csv.reader(csv_file, delimiter=',')
             expected_report = [row for row in csv_report]
             print(expected_report)
