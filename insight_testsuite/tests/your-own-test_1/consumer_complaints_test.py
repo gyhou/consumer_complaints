@@ -18,19 +18,23 @@ class TestConsumerComplaints(unittest.TestCase):
 
         with open(expected_output, 'r') as csv_file:
             csv_report = csv.reader(csv_file, delimiter=',')
-            expected_report = [row for row in csv_report]
-            print(expected_report)
+            expected_report = [row for row in csv_report if row]
         with open(output_loc, 'r') as csv_file:
             csv_report = csv.reader(csv_file, delimiter=',')
-            actual_report = [row for row in csv_report]
-            print(actual_report)
+            actual_report = [row for row in csv_report if row]
 
         self.assertEqual(actual_report, expected_report)
 
-    # def test_error(self):
-    #     # Test if function is catch error
-    #     test1 = self.directory + '/input/test1_complaints.csv'
-    #     self.assertRaises(KeyError, process_csv, test1)
+    def test_error(self):
+        # Test if function is catching error in input csv
+        test1 = self.directory + '/input/test1_complaints.csv'
+        self.assertRaises(KeyError, process_csv, test1) # missing column
+        test2 = self.directory + '/input/test2_complaints.csv'
+        self.assertRaises(ValueError, process_csv, test2) # non-int year
+        test3 = self.directory + '/input/test3_complaints.csv'
+        self.assertRaises(ValueError, process_csv, test3) # blank year
+        test4 = self.directory + '/input/test4_complaints.csv'
+        self.assertRaises(TypeError, process_csv, test4) # invalid product, company
 
 
 if __name__ == '__main__':
