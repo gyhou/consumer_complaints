@@ -32,8 +32,9 @@ Takes in 1 argument `file_loc`: The file location to extract the csv from
 ### Part 2
 `output_csv(dict_data, save_loc)`: Takes in the processed data and creates an output csv file.
 <br>
-Takes in 2 arguments `dict_data`: The dictionary with the processed data to covert into csv
-* save_loc: The location and name to save the csv file to
+Takes in 2 arguments:
+- `dict_data`: The dictionary with the processed data to covert into csv
+- `save_loc`: The location and name to save the csv file to
 
 1. Set fieldnames for the csv file ('product', 'year', 'num_complaint','num_company', 'highest_percent')
 1. (Optional) Write the header (column names) if needed as first row (currently commented out)
