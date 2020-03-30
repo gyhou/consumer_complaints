@@ -6,7 +6,7 @@
 1. [Input Dataset](README.md#input-dataset)
 1. [Expected output](README.md#expected-output)
 1. [Repo directory structure](README.md#repo-directory-structure)
-1. [Testing the code](README.md#Unit Test)
+1. [Testing the code](README.md#testing-the-code)
 
 Before submitting your solution you should summarize your approach and run instructions (if any) in your README.
 
@@ -100,12 +100,12 @@ The lines in the output file will be sorted by product (alphabetically) and year
                 ├── consumer_complaints_test.py
                 └── consumer_complaints.py
 
-## Unit Test
+## Testing the code
 This code successfully passed the test using the <a href="https://insight-cc-submission.com/test-my-repo-link">web page</a> to ensure the code can run in the Linux environment.
 
 The `insight_testsuite` directory showcase input tests for the code. Under that directory, `test_1` contains the sample input and output files, `your-own-tests` contain an unittest file `consumer_complaints_test.py` to test various csv input files.
 
-`consumer_complaints_test.py` tests:
+Unit test `consumer_complaints_test.py` tests:
 1. If the output csv is the same as sample output
 1. If the input csv has missing column
 1. If the input csv has non-int year value
