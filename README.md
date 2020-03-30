@@ -14,14 +14,11 @@ The federal government provides a way for consumers to file complaints against c
 **For this challenge, we want to know for each financial product and year, the total number of complaints, number of companies receiving a complaint, and the highest percentage of complaints directed at a single company.**
 
 ## Summary
-This code has 2 parts: First, process the csv file, then aggregate the processed data and create a new csv file.
-
-`python3.7 ./src/consumer_complaints.py ./input/complaints.csv ./output/report.csv`
-
 In the `run.sh` script, `python3.7` is used, followed by the python script file location and name, then the input csv file location and name, then the desired output csv file location and name.
 
-`consumer_complaints.py` has two functions:
+`consumer_complaints.py` has 2 parts: First, process the csv file, then aggregate the processed data and create a new csv file.
 
+### Part 1
 `process_csv(file_loc)`: Takes in an input csv and returns a dictionary with processed data.
 <br>
 Takes in 1 argument:
@@ -33,7 +30,8 @@ Takes in 1 argument:
     * The value is another dictionary {company_1: number of complaints} for that (product, year)
     * Lower case both product type and company name
     * Extract year from "Date received"
-
+    
+### Part 2
 `output_csv(dict_data, save_loc)`: Takes in the processed data and creates an output csv file.
 <br>
 Takes in 2 arguments:
