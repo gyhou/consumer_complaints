@@ -21,9 +21,7 @@ In the `run.sh` script, `python3.7` is used, followed by the python script file 
 ### Part 1
 `process_csv(file_loc)`: Takes in an input csv and returns a dictionary with processed data.
 <br>
-Takes in 1 argument:
-* file_loc: The file location to extract the csv from
-
+Takes in 1 argument `file_loc`: The file location to extract the csv from
 1. Check for missing columns (Product, Company, Date Received)
 1. Sort the data by product (alphabetically) and year (ascending)
 1. Create and returns a dictionary with (product, year) as key
@@ -34,8 +32,7 @@ Takes in 1 argument:
 ### Part 2
 `output_csv(dict_data, save_loc)`: Takes in the processed data and creates an output csv file.
 <br>
-Takes in 2 arguments:
-* dict_data: The dictionary with the processed data to covert into csv
+Takes in 2 arguments `dict_data`: The dictionary with the processed data to covert into csv
 * save_loc: The location and name to save the csv file to
 
 1. Set fieldnames for the csv file ('product', 'year', 'num_complaint','num_company', 'highest_percent')
