@@ -8,26 +8,25 @@
 1. [Repo directory structure](README.md#repo-directory-structure)
 1. [Testing the code](README.md#testing-the-code)
 
-Before submitting your solution you should summarize your approach and run instructions (if any) in your README.
-
 ## Problem
 The federal government provides a way for consumers to file complaints against companies regarding different financial products, such as payment problems with a credit card or debt collection tactics. This challenge will be about identifying the number of complaints filed and how they're spread across different companies. 
 
-**For this challenge, we want to know for each financial product and year, the total number of complaints, number of companies receiving a complaint, and the highest percentage of complaints directed at a single company.
+**For this challenge, we want to know for each financial product and year, the total number of complaints, number of companies receiving a complaint, and the highest percentage of complaints directed at a single company.**
 
 ## Summary
 This code has 2 parts: First, process the csv file, then aggregate the processed data and create a new csv file.
 
-In the `run.sh` script, `python3.7` is used, followed by the python script file location and name, then the input csv file location and name, then the desired output csv file location and name.
-
 `python3.7 ./src/consumer_complaints.py ./input/complaints.csv ./output/report.csv`
 
-`consumer_complaints.py` has two functions: `process_csv(file_loc)` and `output_csv(dict_data, save_loc)`
+In the `run.sh` script, `python3.7` is used, followed by the python script file location and name, then the input csv file location and name, then the desired output csv file location and name.
 
-`process_csv(file_loc)` functionality: Takes in an input csv and returns a dictionary with processed data.
+`consumer_complaints.py` has two functions:
+
+`process_csv(file_loc)`: Takes in an input csv and returns a dictionary with processed data.
 <br>
 Takes in 1 argument:
 * file_loc: The file location to extract the csv from
+
 1. Check for missing columns (Product, Company, Date Received)
 1. Sort the data by product (alphabetically) and year (ascending)
 1. Create and returns a dictionary with (product, year) as key
@@ -35,11 +34,12 @@ Takes in 1 argument:
     * Lower case both product type and company name
     * Extract year from "Date received"
 
-`output_csv(dict_data, save_loc)` functionality:
+`output_csv(dict_data, save_loc)`: Takes in the processed data and creates an output csv file.
 <br>
 Takes in 2 arguments:
 * dict_data: The dictionary with the processed data to covert into csv
 * save_loc: The location and name to save the csv file to
+
 1. Set fieldnames for the csv file ('product', 'year', 'num_complaint','num_company', 'highest_percent')
 1. (Optional) Write the header (column names) if needed as first row (currently commented out)
 1. Create an output csv file
