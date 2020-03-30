@@ -70,12 +70,12 @@ def output_csv(dict_data, save_loc):
     :param dict_data:
         The dictionary with the processed data to covert into csv.
     :param save_loc:
-        The location to save the csv file to.
+        The location and name to save the csv file to.
 
     Creates a csv file in the output folder.
     Each line in the output file list the following fields in the following order:
-    - product (name should be written in all lowercase)
-    - year
+    - product: type of product the consumer identified in the complaint (written in all lowercase)
+    - year: year the CFPB received the complaint
     - num_complaint: total number of complaints received for that product and year
     - num_company: total number of companies receiving at least one complaint for that product and year
     - highest percentage (rounded to the nearest whole number) of total complaints filed against one 
