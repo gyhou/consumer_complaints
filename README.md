@@ -21,7 +21,8 @@ In the `run.sh` script, `python3.7` is used, followed by the python script file 
 ### Part 1
 `process_csv(file_loc)`: Takes in an input csv and returns a dictionary with processed data.
 <br>
-Takes in 1 argument `file_loc`: The file location to extract the csv from
+Takes in 1 argument:
+- `file_loc`: The file location to extract the csv from
 1. Check for missing columns (Product, Company, Date Received)
 1. Sort the data by product (alphabetically) and year (ascending)
 1. Create and returns a dictionary with (product, year) as key
