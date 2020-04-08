@@ -46,6 +46,8 @@ Takes in 2 arguments:
     * Refer to [Expected output](README.md#expected-output) for more detail
 
 ## Input dataset
+[Data Source](http://files.consumerfinance.gov/ccdb/complaints.csv.zip)
+
 The code will read an input file,  `complaints.csv`, at the top-most `input` directory of the repository, process it and write the results to an output file, `report.csv` to the top-most `output` directory of the repository.
 
 Each line of the input file, except for the first-line header, represents one complaint. Consult the [Consumer Finance Protection Bureau's technical documentation](https://cfpb.github.io/api/ccdb/fields.html) for a description of each field.  
