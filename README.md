@@ -14,6 +14,8 @@ The federal government provides a way for consumers to file complaints against c
 For this project ***using only built-in Python libraries***, we want to know for each financial product and year, the total number of complaints, number of companies receiving a complaint, the company with the most complaints, and the highest percentage of complaints directed at a single company.
 
 ## Summary
+[Jupyter Notebook version](https://github.com/gyhou/consumer_complaints/blob/master/Consumer_Complaints_Project.ipynb)
+
 In the `run.sh` script, `python3.7` is used, followed by the python script file location and name, then the input csv file location and name, then the desired output csv file location and name.
 
 `consumer_complaints.py` has 2 parts: First, process the csv file, then aggregate the processed data and create a new csv file.
