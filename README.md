@@ -84,7 +84,7 @@ The lines in the output file will be sorted by product (alphabetically) and year
             |   │   └── complaints.csv
             |   ├── output
             |   │   └── report.csv
-            └── your-own-tests
+            └── my-own-tests
                 ├── input
                 │   ├── complaints.csv
                 │   ├── test1_complaints.csv
@@ -98,9 +98,7 @@ The lines in the output file will be sorted by product (alphabetically) and year
                 └── consumer_complaints.py
 
 ## Testing the code
-This code successfully passed the test using the <a href="https://insight-cc-submission.com/test-my-repo-link">web page</a> to ensure the code can run in the Linux environment.
-
-The `insight_testsuite` directory showcase input tests for the code. Under that directory, `test_1` contains the sample input and output files, `your-own-tests` contain an unittest file `consumer_complaints_test.py` to test various csv input files.
+The `testsuite` directory showcase input tests for the code. Under that directory, `test_1` contains the sample input and output files, `my-own-tests` contain an unittest file `consumer_complaints_test.py` to test various csv input files.
 
 Unit test `consumer_complaints_test.py` tests:
 1. If the output csv is the same as sample output
