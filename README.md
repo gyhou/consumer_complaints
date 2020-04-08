@@ -62,6 +62,7 @@ Each line in the output file should list the following fields in the following o
 * year - year the CFPB received the complaint
 * num_complaint - total number of complaints received for that product and year
 * num_company - total number of companies receiving at least one complaint for that product and year
+* most_complaints: company with most complaints for that product and year
 * highest_percent - highest percentage (rounded to the nearest whole number) of total complaints filed against one company for that product and year. Using standard rounding conventions (i.e., Any percentage between 0.5% and 1%, inclusive, should round to 1% and anything less than 0.5% should round to 0%)
 
 The lines in the output file will be sorted by product (alphabetically) and year (ascending).
