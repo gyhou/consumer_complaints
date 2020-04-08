@@ -13,6 +13,8 @@ The federal government provides a way for consumers to file complaints against c
 
 **For this project, we want to know for each financial product and year, the total number of complaints, number of companies receiving a complaint, the company with the most complaints, and the highest percentage of complaints directed at a single company.**
 
+***Using only built-in Python libraries***
+
 ## Summary
 In the `run.sh` script, `python3.7` is used, followed by the python script file location and name, then the input csv file location and name, then the desired output csv file location and name.
 
@@ -50,7 +52,7 @@ Each line of the input file, except for the first-line header, represents one co
 
 * Notice that complaints were not listed in chronological order
 
-For the purposes of this proejct, all names, including company and product, should be treated as case insensitive. For example, "Acme", "ACME", and "acme" would represent the same company.
+For the purposes of this project, all names, including company and product, should be treated as case insensitive. For example, "Acme", "ACME", and "acme" would represent the same company.
 
 ## Expected output
 After reading and processing the input file, the code will create an output file, `report.csv`, with as many lines as unique pairs of product and year (of `Date received`) in the input file. 
