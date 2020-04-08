@@ -13,6 +13,8 @@ The federal government provides a way for consumers to file complaints against c
 
 **For this challenge, we want to know for each financial product and year, the total number of complaints, number of companies receiving a complaint, and the highest percentage of complaints directed at a single company.**
 
+***Using only built-in Python libraries***
+
 ## Summary
 In the `run.sh` script, `python3.7` is used, followed by the python script file location and name, then the input csv file location and name, then the desired output csv file location and name.
 
