@@ -46,7 +46,7 @@ Takes in 2 arguments:
     * Refer to [Expected output](README.md#expected-output) for more detail
 
 ## Input dataset
-[Data Source](http://files.consumerfinance.gov/ccdb/complaints.csv.zip)
+[Data Source](http://files.consumerfinance.gov/ccdb/complaints.csv.zip) used in this project from [Data.gov](https://catalog.data.gov/dataset/consumer-complaint-database).
 
 The code will read an input file,  `complaints.csv`, at the top-most `input` directory of the repository, process it and write the results to an output file, `report.csv` to the top-most `output` directory of the repository.
 
