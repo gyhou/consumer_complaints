@@ -40,7 +40,6 @@ Takes in 2 arguments:
 - `save_loc`: The location and name to save the csv file to
 
 1. Set fieldnames for the csv file `('product', 'year', 'num_complaint','num_company', 'most_complaints', 'highest_percent')`
-1. (Optional) Write the header (column names) if needed as first row (currently commented out)
 1. Create an output csv file
     * Read the dict_data and insert a row for each distinct (product, year)
     * Refer to [Expected output](README.md#expected-output) for more detail
