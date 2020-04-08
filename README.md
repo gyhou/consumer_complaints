@@ -77,7 +77,7 @@ The lines in the output file will be sorted by product (alphabetically) and year
     │   └── complaints.csv
     ├── output
     |   └── report.csv
-    └── insight_testsuite
+    └── testsuite
         └── tests
             └── test_1
             |   ├── input
