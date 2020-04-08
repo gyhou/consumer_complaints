@@ -1,1 +1,1 @@
-This is the directory where your souce code would reside
+This is the directory where the souce code would reside.

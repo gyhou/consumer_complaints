@@ -54,7 +54,8 @@ def process_csv(file_loc):
                 int(year)
             except ValueError:
                 raise ValueError(f'"{year}" is not a valid year.')
-
+            # Set primary key (product, year)
+            # Partition keys - product, year
             if (product, year) in processed_data:
                 if company in processed_data[product, year]:
                     processed_data[product, year][company] += 1
@@ -98,7 +99,7 @@ def output_csv(dict_data, save_loc):
             highest_percent = (Decimal(max(company_complaint.values()) /
                                        sum(company_complaint.values()) * 100).
                                quantize(0, ROUND_HALF_UP))
-
+            # Clustering columns/Sort Keys - (product, year)
             writer.writerow({'product': product,
                              'year': year,
                              'num_complaint': num_complaint,
