@@ -28,7 +28,7 @@ Takes in 1 argument:
 1. Check for missing columns (Product, Company, Date Received)
 1. Sort the data by product (alphabetically) and year (ascending)
 1. Create and returns a dictionary with (product, year) as key
-    * The value is another dictionary {company_1: number of complaints} for that (product, year)
+    * The value is another dictionary `{company_1: number of complaints}` for that (product, year)
     * Lower case both product type and company name
     * Extract year from "Date received"
     
@@ -39,7 +39,7 @@ Takes in 2 arguments:
 - `dict_data`: The dictionary with the processed data to covert into csv
 - `save_loc`: The location and name to save the csv file to
 
-1. Set fieldnames for the csv file ('product', 'year', 'num_complaint','num_company', 'highest_percent')
+1. Set fieldnames for the csv file `('product', 'year', 'num_complaint','num_company', 'most_complaints', 'highest_percent')`
 1. (Optional) Write the header (column names) if needed as first row (currently commented out)
 1. Create an output csv file
     * Read the dict_data and insert a row for each distinct (product, year)
