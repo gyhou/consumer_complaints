@@ -9,9 +9,9 @@
 1. [Testing the code](README.md#testing-the-code)
 
 ## Problem
-The federal government provides a way for consumers to file complaints against companies regarding different financial products, such as payment problems with a credit card or debt collection tactics. This challenge will be about identifying the number of complaints filed and how they're spread across different companies. 
+The federal government provides a way for consumers to file complaints against companies regarding different financial products, such as payment problems with a credit card or debt collection tactics. This project will be about identifying the number of complaints filed and how they're spread across different companies. 
 
-**For this challenge, we want to know for each financial product and year, the total number of complaints, number of companies receiving a complaint, and the highest percentage of complaints directed at a single company.**
+**For this project, we want to know for each financial product and year, the total number of complaints, number of companies receiving a complaint, and the highest percentage of complaints directed at a single company.**
 
 ***Using only built-in Python libraries***
 
@@ -52,7 +52,7 @@ Each line of the input file, except for the first-line header, represents one co
 
 * Notice that complaints were not listed in chronological order
 
-For the purposes of this challenge, all names, including company and product, should be treated as case insensitive. For example, "Acme", "ACME", and "acme" would represent the same company.
+For the purposes of this project, all names, including company and product, should be treated as case insensitive. For example, "Acme", "ACME", and "acme" would represent the same company.
 
 ## Expected output
 After reading and processing the input file, the code will create an output file, `report.csv`, with as many lines as unique pairs of product and year (of `Date received`) in the input file. 
