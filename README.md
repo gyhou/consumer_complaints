@@ -9,9 +9,9 @@
 1. [Testing the code](README.md#testing-the-code)
 
 ## Problem
-The federal government provides a way for consumers to file complaints against companies regarding different financial products, such as payment problems with a credit card or debt collection tactics. This challenge will be about identifying the number of complaints filed and how they're spread across different companies. 
+The federal government provides a way for consumers to file complaints against companies regarding different financial products, such as payment problems with a credit card or debt collection tactics. This project will be about identifying the number of complaints filed and how they're spread across different companies. 
 
-**For this challenge, we want to know for each financial product and year, the total number of complaints, number of companies receiving a complaint, and the highest percentage of complaints directed at a single company.**
+**For this project, we want to know for each financial product and year, the total number of complaints, number of companies receiving a complaint, the company with the most complaints, and the highest percentage of complaints directed at a single company.**
 
 ## Summary
 In the `run.sh` script, `python3.7` is used, followed by the python script file location and name, then the input csv file location and name, then the desired output csv file location and name.
@@ -50,7 +50,7 @@ Each line of the input file, except for the first-line header, represents one co
 
 * Notice that complaints were not listed in chronological order
 
-For the purposes of this challenge, all names, including company and product, should be treated as case insensitive. For example, "Acme", "ACME", and "acme" would represent the same company.
+For the purposes of this proejct, all names, including company and product, should be treated as case insensitive. For example, "Acme", "ACME", and "acme" would represent the same company.
 
 ## Expected output
 After reading and processing the input file, the code will create an output file, `report.csv`, with as many lines as unique pairs of product and year (of `Date received`) in the input file. 
@@ -60,6 +60,7 @@ Each line in the output file should list the following fields in the following o
 * year - year the CFPB received the complaint
 * num_complaint - total number of complaints received for that product and year
 * num_company - total number of companies receiving at least one complaint for that product and year
+* most_complaints: company with most complaints for that product and year
 * highest_percent - highest percentage (rounded to the nearest whole number) of total complaints filed against one company for that product and year. Using standard rounding conventions (i.e., Any percentage between 0.5% and 1%, inclusive, should round to 1% and anything less than 0.5% should round to 0%)
 
 The lines in the output file will be sorted by product (alphabetically) and year (ascending).
@@ -77,7 +78,7 @@ The lines in the output file will be sorted by product (alphabetically) and year
     │   └── complaints.csv
     ├── output
     |   └── report.csv
-    └── insight_testsuite
+    └── testsuite
         └── tests
             └── test_1
             |   ├── input

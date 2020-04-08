@@ -55,7 +55,6 @@ def process_csv(file_loc):
             except ValueError:
                 raise ValueError(f'"{year}" is not a valid year.')
             # Set primary key (product, year)
-            # Partition keys - product, year
             if (product, year) in processed_data:
                 if company in processed_data[product, year]:
                     processed_data[product, year][company] += 1
@@ -79,31 +78,32 @@ def output_csv(dict_data, save_loc):
     - year
     - num_complaint: total number of complaints received for that product and year
     - num_company: total number of companies receiving at least one complaint for that product and year
+    - most_complaints: company with most complaints for that product and year
     - highest percentage (rounded to the nearest whole number) of total complaints filed against one 
-    company for that product and year. Use standard rounding conventions 
-    (i.e., Any percentage between 0.5% and 1%, inclusive, 
-    should round to 1% and anything less than 0.5% should round to 0%)
+    company for that product and year.
     """
     with open(save_loc, 'w') as csv_file:
-        field_names = ['product', 'year', 'num_complaint',
-                       'num_company', 'highest_percent']
+        field_names = ['product', 'year', 'num_complaint', 'num_company', 
+                       'most_complaints', 'highest_percent']
         writer = csv.DictWriter(csv_file, fieldnames=field_names)
 
-        # writer.writeheader() # Write header if needed as first row
+        writer.writeheader()
         for product_year, company_complaint in dict_data.items():
             product = product_year[0]
             year = product_year[1]
             num_complaint = sum(company_complaint.values())
             num_company = len(company_complaint)
+            most_complaints = max(company_complaint, key=company_complaint.get)
             # Python round() does not round .5 up to 1
             highest_percent = (Decimal(max(company_complaint.values()) /
                                        sum(company_complaint.values()) * 100).
                                quantize(0, ROUND_HALF_UP))
-            # Clustering columns/Sort Keys - (product, year)
+
             writer.writerow({'product': product,
                              'year': year,
                              'num_complaint': num_complaint,
                              'num_company': num_company,
+                             'most_complaints': most_complaints,
                              'highest_percent': highest_percent})
 
 
