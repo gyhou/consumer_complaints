@@ -11,11 +11,11 @@
 ## Problem
 The federal government provides a way for consumers to file complaints against companies regarding different financial products, such as payment problems with a credit card or debt collection tactics. This project will be about identifying the number of complaints filed and how they're spread across different companies. 
 
-**For this project, we want to know for each financial product and year, the total number of complaints, number of companies receiving a complaint, the company with the most complaints, and the highest percentage of complaints directed at a single company.**
-
-***Using only built-in Python libraries***
+For this project ***using only built-in Python libraries***, we want to know for each financial product and year, the total number of complaints, number of companies receiving a complaint, the company with the most complaints, and the highest percentage of complaints directed at a single company.
 
 ## Summary
+[Jupyter Notebook version](https://github.com/gyhou/consumer_complaints/blob/master/Consumer_Complaints_Project.ipynb)
+
 In the `run.sh` script, `python3.7` is used, followed by the python script file location and name, then the input csv file location and name, then the desired output csv file location and name.
 
 `consumer_complaints.py` has 2 parts: First, process the csv file, then aggregate the processed data and create a new csv file.
@@ -28,7 +28,7 @@ Takes in 1 argument:
 1. Check for missing columns (Product, Company, Date Received)
 1. Sort the data by product (alphabetically) and year (ascending)
 1. Create and returns a dictionary with (product, year) as key
-    * The value is another dictionary {company_1: number of complaints} for that (product, year)
+    * The value is another dictionary `{company_1: number of complaints}` for that (product, year)
     * Lower case both product type and company name
     * Extract year from "Date received"
     
@@ -39,13 +39,14 @@ Takes in 2 arguments:
 - `dict_data`: The dictionary with the processed data to covert into csv
 - `save_loc`: The location and name to save the csv file to
 
-1. Set fieldnames for the csv file ('product', 'year', 'num_complaint','num_company', 'highest_percent')
-1. (Optional) Write the header (column names) if needed as first row (currently commented out)
+1. Set fieldnames for the csv file `('product', 'year', 'num_complaint','num_company', 'most_complaints', 'highest_percent')`
 1. Create an output csv file
     * Read the dict_data and insert a row for each distinct (product, year)
     * Refer to [Expected output](README.md#expected-output) for more detail
 
 ## Input dataset
+[Data Source](http://files.consumerfinance.gov/ccdb/complaints.csv.zip) used in this project from [Data.gov](https://catalog.data.gov/dataset/consumer-complaint-database).
+
 The code will read an input file,  `complaints.csv`, at the top-most `input` directory of the repository, process it and write the results to an output file, `report.csv` to the top-most `output` directory of the repository.
 
 Each line of the input file, except for the first-line header, represents one complaint. Consult the [Consumer Finance Protection Bureau's technical documentation](https://cfpb.github.io/api/ccdb/fields.html) for a description of each field.  
